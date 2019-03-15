@@ -24,10 +24,11 @@ public class Main {
     public static void main(String[] args) {
         try {
             if (args.length == 4) {
-                System.out.println(args[0]);
-                System.out.println(args[1]);
-                System.out.println(args[2]);
-                System.out.println(args[3]);
+                System.out.println("Parameters");
+                System.out.println("src: "+args[0]);
+                System.out.println("dest: "+args[1]);
+                System.out.println("dir-filter: "+args[2]);
+                System.out.println("extensions-filter: "+args[3]);
                 syncFiles(args[0], args[1], args[2], args[3]);
             } else {
                 System.err.println("Error:");
