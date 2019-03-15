@@ -23,7 +23,19 @@ public class Main {
 
     public static void main(String[] args) {
         try {
-            syncFiles("/home/redrede/DEV/cpqd/saf/2.3.0/", "/home/redrede/Servers/wildfly14/standalone/tmp/vfs/deployment/", "src", "xhtml,html,css,js");
+            if (args.length == 4) {
+                System.out.println(args[0]);
+                System.out.println(args[1]);
+                System.out.println(args[2]);
+                System.out.println(args[3]);
+                syncFiles(args[0], args[1], args[2], args[3]);
+            } else {
+                System.err.println("Error:");
+                System.err.println("Enter the parameters");
+                System.out.println("java -jar syncfiles.jar <src> <dest> <dir-filter> <extensions-filter>");
+                System.out.println("Example: ");                
+                System.out.println("java -jar syncfiles.jar \"/home/redrede/DEV/teste/2.0/\" \"/home/redrede/Servers/wildfly14/standalone/tmp/vfs/deployment/\" \"src\" \"xhtml,html,css,js\"");
+            }
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
