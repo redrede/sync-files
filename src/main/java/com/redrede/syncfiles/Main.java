@@ -1,13 +1,17 @@
 package com.redrede.syncfiles;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
+import org.apache.commons.io.IOUtils;
 import org.apache.commons.io.filefilter.DirectoryFileFilter;
 import org.apache.commons.io.filefilter.NameFileFilter;
 import org.apache.commons.io.filefilter.TrueFileFilter;
@@ -134,7 +138,10 @@ public class Main {
                     if (destFile != null) {
                         try {
                             System.out.println("File sync: " + destFile);
-                            FileUtils.copyFile(srcFile, destFile);
+                            
+                            String string = IOUtils.toString(new FileInputStream(srcFile), StandardCharsets.UTF_8);
+                            IOUtils.write(string, new FileOutputStream(destFile), StandardCharsets.UTF_8);
+                            IOUtils.write(string, new FileOutputStream(destFile), StandardCharsets.UTF_8);
                         } catch (IOException ex) {
                             ex.printStackTrace();
                         }
