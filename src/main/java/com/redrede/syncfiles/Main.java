@@ -139,9 +139,8 @@ public class Main {
                         try {
                             System.out.println("File sync: " + destFile);
                             
-                            String string = IOUtils.toString(new FileInputStream(srcFile), StandardCharsets.UTF_8);
-                            IOUtils.write(string, new FileOutputStream(destFile), StandardCharsets.UTF_8);
-                            IOUtils.write(string, new FileOutputStream(destFile), StandardCharsets.UTF_8);
+                            String content = IOUtils.toString(new FileInputStream(srcFile), StandardCharsets.UTF_8);
+                            IOUtils.write(content, new FileOutputStream(destFile), StandardCharsets.UTF_8);
                         } catch (IOException ex) {
                             ex.printStackTrace();
                         }
